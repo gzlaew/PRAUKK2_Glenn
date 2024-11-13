@@ -1,0 +1,17 @@
+{
+    "packagesToCopy": [
+        "@alpinejs/collapse",
+        "@alpinejs/persist",
+        "alpinejs",
+        "apexcharts",
+        "fancybox",
+        "flatpickr",
+        "tailwindcss",
+        "remixicon",
+        "sortablejs",
+        "swiper",
+        "tippy.js",
+        "simplebar",
+        "@popperjs/core"
+    ]
+}

@@ -1,8 +1,6 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('API Tokens') }}
-        </h2>
+    <x-slot name="title">
+        {{ __('API Tokens') }}
     </x-slot>
 
     <div>
@@ -10,4 +8,8 @@
             @livewire('api.api-token-manager')
         </div>
     </div>
+
+    <x-slot name="scripts">
+        <script src="{{ URL::asset('build/js/main.js') }}"></script>
+    </x-slot>
 </x-app-layout>
