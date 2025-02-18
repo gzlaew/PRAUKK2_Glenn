@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Validation\Rule;
+
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -33,6 +35,8 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'username' => $input['username'],
             'password' => Hash::make($input['password']),
+            'role' => 'Admin'
         ]);
+        dd($user->toArray());
     }
 }

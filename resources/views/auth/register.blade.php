@@ -1,7 +1,6 @@
 <x-guest-layout>
     <x-slot name="title">Register</x-slot>
 
-    <!-- Start Main Content -->
     <div class="min-h-[calc(100vh-134px)] py-4 px-4 sm:px-12 flex justify-center items-center max-w-[1440px] mx-auto">
         <div
             class="max-w-[550px] flex-none w-full bg-white border border-black/10 p-6 sm:p-10 lg:px-10 lg:py-14 rounded-2xl dark:bg-darklight dark:border-darkborder">
@@ -10,7 +9,7 @@
 
             <x-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('register') }}" class="">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div class="mb-4">
@@ -52,17 +51,9 @@
                                 <div class="ms-2">
                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
                                     'terms_of_service' =>
-                                    '<a target="_blank" href="' .
-                                                route('terms.show') .
-                                                '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                        __('Terms of Service') .
-                                        '</a>',
+                                    '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Terms of Service') . '</a>',
                                     'privacy_policy' =>
-                                    '<a target="_blank" href="' .
-                                                route('policy.show') .
-                                                '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                        __('Privacy Policy') .
-                                        '</a>',
+                                    '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Privacy Policy') . '</a>',
                                     ]) !!}
                                 </div>
                             </div>
@@ -81,5 +72,4 @@
                     class="text-black dark:text-white">Sign In</a></p>
         </div>
     </div>
-    <!-- End Main Content -->
 </x-guest-layout>

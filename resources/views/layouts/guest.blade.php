@@ -1,3 +1,7 @@
+@php
+    use App\Models\settings;
+    $setting = settings::first();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" :dir="$store.app.direction" x-data="{ direction: $store.app.direction }"
     x-bind:dir="direction" class="group/item" :data-mode="$store.app.mode" :data-sidebar="$store.app.sidebarMode">
@@ -38,14 +42,16 @@
     <header>
         <nav class="px-4 lg:px-7 py-4 max-w-[1440px] mx-auto">
             <div class="flex flex-wrap items-center justify-between">
-                <a href="{{ url('/') }}" class="flex items-center">
-                    <img src="{{ URL::asset('build/images/logo-light.svg') }}" class="mx-auto dark-logo h-7 dark:hidden" alt="logo">
-                    <img src="{{ URL::asset('build/images/light.svg') }}" class="hidden mx-auto light-logo h-7 dark:block" alt="logo">
-                </a>
+
             </div>
         </nav>
     </header>
     <!-- End Header -->
+
+    <div class="flex flex-col items-center justify-center space-y-4 p-4 bg-white-900 text-white rounded-lg shadow-md max-w-md mx-auto mt-6">
+        <img src="{{ asset('storage/' . $setting->logo) }}" class="h-12 w-12 object-cover rounded-full" alt="Logo" />
+        <h2 class="text-lg font-semibold">{{ $setting->name }}</h2>
+    </div>
 
     {{ $slot }}
 

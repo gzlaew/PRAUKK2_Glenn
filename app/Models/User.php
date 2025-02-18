@@ -30,6 +30,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'username',
         'password',
+        'role',
     ];
 
     /**
@@ -64,5 +65,10 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class, 'user_id');
     }
 }

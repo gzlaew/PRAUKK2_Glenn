@@ -10,6 +10,7 @@
     <meta content="Tailwind CSS Admin & Dashboard Template" name="description">
     <meta content="SRBThemes" name="author">
     <!-- favicon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -51,7 +52,7 @@
 
             <!-- Start Content -->
             <div class="h-[calc(100vh-60px)] relative overflow-y-auto overflow-x-hidden p-4 space-y-4 detached-content">
-                {{ $slot }}
+   @yield('content')
 
                 <x-layout.footer />
             </div>
@@ -66,6 +67,10 @@
 @livewireScripts
 
 <x-layout.vendor-scripts scripts="{{ $scripts ?? '' }}" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

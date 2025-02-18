@@ -67,16 +67,16 @@
                 if (this.open) {
                     return this.close();
                 }
-        
+
                 this.$refs.button.focus();
-        
+
                 this.open = true;
             },
             close(focusAfter) {
                 if (!this.open) return;
-        
+
                 this.open = false;
-        
+
                 focusAfter && focusAfter.focus();
             }
         }" x-on:keydown.escape.prevent.stop="close($refs.button)"
@@ -85,9 +85,11 @@
             <button x-ref="button" x-on:click="toggle()" :aria-expanded="open"
                 :aria-controls="$id('dropdown-button')" type="button"
                 class="flex items-center gap-1.5 xl:gap-0 dark:text-white/80">
-                <img class="rounded-full h-7 w-7 ltr:xl:mr-2 rtl:xl:ml-2"
-                    src="{{ Auth::user()->profile_photo_url }}" alt="Header Avatar" />
-                <span class="hidden fw-medium xl:block dark:text-white/80">{{ Auth::user()->name }}</span>
+                <span class="hidden fw-medium xl:block dark:text-white/80">
+            @php
+ $User = auth()->user();
+            @endphp
+<span>{{ $User->name }}</span></span>
                 <svg :class="{ 'transform rotate-180': open }"
                     class="text-gray-400 transition-transform duration-300 size-5" viewBox="0 0 20 20"
                     fill="currentColor">
