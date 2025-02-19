@@ -48,6 +48,9 @@ Route::post('/shifts/store', [ShiftController::class, 'store'])->name('shifts.st
 
 Route::get('/shifts/{id}/edit', [ShiftController::class, 'edit'])->name('shift.edit');
 
+Route::delete('/service/{id}', [ServiceController::class, 'destroy'])
+    ->name('service.destroy');
+
 // Rute Update (menyimpan perubahan)
 Route::put('/shifts/{id}', [ShiftController::class, 'update'])->name('shift.update');
 Route::resource('sparepart', SparepartController::class);
@@ -65,6 +68,10 @@ Route::get('/alat/{id}/edit', [AlatController::class, 'edit'])->name('alat.edit'
 Route::put('/alat/{id}', [AlatController::class, 'update'])->name('alat.update');
 Route::delete('/alat/{id}', [AlatController::class, 'destroy'])->name('alat.destroy');
 Route::post('/sparepart/addStock', [SparepartController::class, 'addStock'])->name('sparepart.addStock');
+Route::resource('/peminjaman', peminjamanController::class);
+Route::put('/peminjaman{id}/approve', [PeminjamanController::class, 'approve'])->name('peminjaman.approve');
+Route::put('/peminjaman{id}/reject', [PeminjamanController::class, 'reject'])->name('peminjaman.reject');
+Route::put('/peminjaman{id}/kembali', [PeminjamanController::class, 'kembali'])->name('peminjaman.kembali');
 
 
 Route::resource('jamkerja', JamKerjaController::class);

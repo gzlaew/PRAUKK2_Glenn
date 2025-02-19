@@ -17,12 +17,13 @@ return new class extends Migration
             $table->string('nama_customer');
             $table->text('keluhan');
             $table->string('nomor_hp');
+            $table->string('jenis_service');
             $table->json('spareparts');
             $table->decimal('harga_sparepart', 10, 2);
             $table->decimal('total_harga', 10, 2);
             $table->enum('status', ['Waiting', 'Proses', 'Selesai'])->default('Waiting');
             $table->foreignId('user_id')->constrained('users');
-            $table->string('estimasi_selesai'); // Perubahan dari timestamp ke string biasa
+            $table->time('estimasi_selesai'); // Perubahan dari timestamp ke string biasa
             $table->timestamps();
         });
     }
