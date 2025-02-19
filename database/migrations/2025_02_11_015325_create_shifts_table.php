@@ -5,18 +5,27 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    public function up(): void
+    public function up()
     {
         Schema::create('shifts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->timestamp('shift_date'); // Gantikan year, month, day dengan shift_date
-            $table->enum('hour', [
-                'Shift Pagi 06:00-12:00',
-                'Shift Siang 12:00-18:00',
-                'Shift Malam 18:00-00:00',
-            ]);
-            $table->timestamps();
+            $table->id();                         // primary key
+            $table->foreignId('user_id')          // kolom user_id
+                ->constrained('users')          // referensi ke tabel users
+                ->onDelete('cascade');          // opsi jika user dihapus
+
+            // shift_date bisa menggunakan tipe 'date'
+            // atau 'datetime' tergantung kebutuhan Anda.
+            $table->date('shift_date');
+
+            // id_jk merujuk ke kolom id_jk di tabel jam_kerjas
+            // jika Anda ingin menambahkan constraint foreign key:
+            $table->unsignedBigInteger('id_jk');
+            $table->foreign('id_jk')
+                ->references('id_jk')
+                ->on('jam_kerjas')
+                ->onDelete('cascade');
+
+            $table->timestamps();                 // created_at & updated_at
         });
     }
 
